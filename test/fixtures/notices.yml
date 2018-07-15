@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyString
+  is_show: false
+  is_home: false
+  shop: one
+
+two:
+  content: MyString
+  is_show: false
+  is_home: false
+  shop: two

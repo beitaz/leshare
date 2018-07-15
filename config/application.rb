@@ -29,5 +29,20 @@ module Leshare
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    $redis = Redis.new(host: 'localhost', port: 6379)
+
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '**', '*.{rb,yml}')]
+    config.i18n.default_locale = :'zh-CN'
+    config.time_zone = 'Beijing'
+    config.active_record.default_timezone = :local
+
+    # Defined un-need generate files.
+    config.generators do |g|
+      g.system_tests false
+      g.stylesheets false
+      g.javascripts false
+      g.jbuilder false
+    end
   end
 end

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  init_increase_bonus: 1
+  cost_money_unit: 1
+  increase_bonus: 1
+  max_increase_bonus: 1
+  cost_bonus_unit: 1
+  reduce_money: 1
+  limit_money: 1
+  max_reduce_bonus: 1
+  is_cost: false
+
+two:
+  init_increase_bonus: 1
+  cost_money_unit: 1
+  increase_bonus: 1
+  max_increase_bonus: 1
+  cost_bonus_unit: 1
+  reduce_money: 1
+  limit_money: 1
+  max_reduce_bonus: 1
+  is_cost: false

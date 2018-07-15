@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  begin_time: MyString
+  end_time: MyString
+  open: false
+
+two:
+  status: MyString
+  begin_time: MyString
+  end_time: MyString
+  open: false

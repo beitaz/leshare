@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shop: one
+  background_pic_url: MyString
+  color: MyString
+  brand_name: MyString
+  title: MyString
+  prerogative: MyString
+  notice: MyString
+  description: MyString
+  service_phone: MyString
+  auto_activate: false
+  supply_bonus: false
+  supply_balance: false
+  supply_discount: false
+  supply_present: false
+  quantity: 1
+  date_type: 1
+  begin_timestamp: 1
+  end_timestamp: 1
+  fixed_term: 1
+  fixed_begin_term: 1
+
+two:
+  shop: two
+  background_pic_url: MyString
+  color: MyString
+  brand_name: MyString
+  title: MyString
+  prerogative: MyString
+  notice: MyString
+  description: MyString
+  service_phone: MyString
+  auto_activate: false
+  supply_bonus: false
+  supply_balance: false
+  supply_discount: false
+  supply_present: false
+  quantity: 1
+  date_type: 1
+  begin_timestamp: 1
+  end_timestamp: 1
+  fixed_term: 1
+  fixed_begin_term: 1

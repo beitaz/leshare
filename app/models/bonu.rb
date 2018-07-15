@@ -1,0 +1,2 @@
+class Bonu < ApplicationRecord
+end
