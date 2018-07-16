@@ -19,4 +19,5 @@
 # Ignore application configuration
 /config/application.yml
 
-mock
+/shop
+/seller

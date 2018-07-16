@@ -16,7 +16,7 @@ class CreateShops < ActiveRecord::Migration[5.1]
       t.integer :support_member
       t.boolean :auto_order, comment: '自动排序'
       t.boolean :is_delete, comment: '标记删除'
-      t.belongs_to :category, foreign_key: true
+      t.belongs_to :category
       
       t.datetime :expired_at
       t.timestamps
