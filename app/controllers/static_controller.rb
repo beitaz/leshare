@@ -6,7 +6,7 @@ class StaticController < ApplicationController
   # 将服务器数据写入文件,需要在客户端添加发送数据逻辑
   # Http.request({
   #   ...
-  #   if (method.toLowerCase() !== 'get') this.grab({method: method.toUpperCase(), url: url}, {data: data});
+  #   if (method.toLowerCase() !== 'get') this.grab({method: 'request-' + method.toLowerCase(), url: url}, {data: data});
   #   else this.grab(param, res.data); // 获取数据后再发送
   #   ...
   # })
@@ -28,7 +28,7 @@ class StaticController < ApplicationController
     result = JSON.parse(params[:result][:data].to_json)
     @data = {
       url: method.upcase + ' ' + url,
-      data: !result.instance_of?(Array) && result.key?('message') ? nested_to_json(result) : result
+      data: !result.instance_of?(Array) && result.key?('message') && result['message'].present? ? nested_to_json(result) : result
     }
     write_data(Rails.root.join(dir_name, sn + '_' + file_name), @data) unless include_file?(Rails.root.join(dir_name, file_name))
   end
