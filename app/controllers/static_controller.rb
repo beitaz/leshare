@@ -3,15 +3,31 @@ class StaticController < ApplicationController
     render json: { msg: 'success' }
   end
 
-  # 将服务器数据写入文件
+  # 将服务器数据写入文件,需要在客户端添加发送数据逻辑
+  # Http.request({
+  #   ...
+  #   if (method.toLowerCase() !== 'get') this.grab({method: method.toUpperCase(), url: url}, {data: data});
+  #   else this.grab(param, res.data); // 获取数据后再发送
+  #   ...
+  # })
+  # function grab (params, data) {
+  #   wepy.request({
+  #     url: 'http://localhost:3000/write', // 开发者服务器接口地址",
+  #     data: {query: params, result: data}, // 请求的参数",
+  #     method: 'POST',
+  #     dataType: 'json' // 如果设为json，会尝试对返回的数据做一次 JSON.parse
+  #   });
+  # }
   def write
+    method = params[:query][:method]
     url = params[:query][:url]
     dir_name = url.include?('5ab7c9627a7afd3099d16b4c/customer') ? 'shop' : 'seller'
     sn = (dir_children(Rails.root.join(dir_name)).length + 1).to_s.rjust(3, '0')
-    file_name = URI(url).path.split('/')[4..-1].join('-') + '.json'
+    #  文件名 = 序号-请求方式-路由名.json
+    file_name = method.downcase + '-' + URI(url).path.split('/')[4..-1].join('-') + '.json'
     result = JSON.parse(params[:result][:data].to_json)
     @data = {
-      url: url,
+      url: method.upcase + ' ' + url,
       data: !result.instance_of?(Array) && result.key?('message') ? nested_to_json(result) : result
     }
     write_data(Rails.root.join(dir_name, sn + '_' + file_name), @data) unless include_file?(Rails.root.join(dir_name, file_name))
